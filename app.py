@@ -223,3 +223,5 @@ def delete(sno):
     # Make change final
     db.session.commit()
     return redirect('/viewTodo')
+if __name__=="__main__":
+    app.run(debug=False,host='0.0.0.0')
