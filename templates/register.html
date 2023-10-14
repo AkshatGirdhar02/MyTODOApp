@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block title %} Register Page {% endblock title %}
+{% block body %}
+<div class="text-center my-5">
+  <h2>Register Page</h2>
+</div>
+<!-- <form action="" method="POST">
+      {{form.hidden_tag()}} {{form.username}} {{form.password}} {{form.submit}}
+    </form> -->
+<form method="POST" action="" style="max-width: 400px; margin: 0 auto">
+  {{ form.hidden_tag() }}
+  <div class="form-group my-3">
+    {{ form.username.label(class="form-label") }} {{
+    form.username(class="form-control") }}
+  </div>
+  <div class="form-group my-3">
+    {{ form.password.label(class="form-label") }} {{
+    form.password(class="form-control") }}
+  </div>
+  <div class="form-group text-center my-3">
+    {{ form.submit(class="btn btn-outline-dark") }}
+  </div>
+</form>
+{% for message in get_flashed_messages() %}
+<div
+  class="alert alert-warning alert-dismissible fade show"
+  role="alert"
+  style="max-width: 400px; margin: 0 auto"
+>
+  <strong>{{message}}</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %}
+<div class="text-center my-5">
+  <h3>Already have an account?</h3>
+  <a href="/login" type="button" class="btn btn-outline-dark">Login</a>
+</div>
+{% endblock body %}
